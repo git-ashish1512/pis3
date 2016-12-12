@@ -6,22 +6,29 @@ case class Address(city:String, country:String)
 case class Employee(name:String, addresses : List[Address])
 
 
-object Emps extends App{
+object Emps extends App {
 
-  val ashish = Employee("Ashish", List( Address("London","UK"),Address("Pune","India")) )
-  val emp2 = Employee("Emp2", List( Address("London","UK"),Address("Newyork","US")) )
-  val listofEmployess = List(ashish,emp2)
-  println(listofEmployess)
+  val ashish = Employee("Ashish", List(Address("London", "UK"), Address("Pune", "India")))
+  val emp2 = Employee("Emp2", List(Address("London", "UK"), Address("Newyork", "US")))
+  val emp3 = Employee("Emp3", List())
 
-  for (emp <- listofEmployess) yield println(emp.addresses)
+  val listofEmployess = List(ashish,emp2, emp3)
+  //println(listofEmployess)
 
-  def filterEmployees (city:String): List[Employee]={
-    for (emp <- listofEmployess) {
-      for (address <- (emp.addresses)
-           if address.city == city) yield println("inside filter: " + emp)
-    }
+  //for (emp <- listofEmployess) yield println(emp.addresses)
+
+  println ( "using filter: " + listofEmployess.filter(emp => emp.addresses.filter(address => address.city == "Newyork").size != 0) )
+
+  def findEmployees(city: String): List[Employee] = {
+    for (emp <- listofEmployess
+         if (emp.addresses.filter(address => address.city == city).size != 0)) yield  emp
   }
 
-  val listofEmployeesinNewyork = filterEmployees("Newyork")
-  println(listofEmployeesinNewyork)
+  val listofEmployeesinPune = findEmployees("Pune")
+  println("Employees in Pune are : " + listofEmployeesinPune)
+  val listofEmployeesinNewyork = findEmployees("Newyork")
+  println("Employees in Newyork are : " + listofEmployeesinNewyork)
+
+
+
 }

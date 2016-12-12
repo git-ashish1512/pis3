@@ -9,24 +9,6 @@ val listofEmployess = List(ashish,emp2, emp3)
 
 listofEmployess.filter(emp => emp.addresses.filter(address => address.city == "Newyork").size != 0)
 
-//val listofEmployeesinNewyork :List[Employee] = {
-//  val newList = Nil
-//  for (emp <- listofEmployess) {
-//    for (address <- emp.addresses
-//         if address.city == "Newyork") yield emp :: newList
-//  }
-//  newList
-//}
+listofEmployess.filter(emp => emp.addresses.exists(address => address.city == "Pune"))
 
-
-
-//for (emp <- listofEmployess) {
-//  for (address <- emp.addresses
-//       if address.city == "Newyork") yield println(emp)
-//}
-/*val listofEmplyeesinNewyork = for(emp <- listofEmployess
-                                  address <- emp.
-                                  if (emp.addresses. == "Newyork") ) yield emp
-*/
-//val listofEmplyeesinNewyork2 = listofEmployess.filter(emp => emp.address.city == "Newyork")
 

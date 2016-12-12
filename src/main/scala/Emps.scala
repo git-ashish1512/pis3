@@ -15,10 +15,13 @@ object Emps extends App{
 
   for (emp <- listofEmployess) yield println(emp.addresses)
 
-  for (emp <- listofEmployess) {
-    for (address <- (emp.addresses)
-         if address.city == "Newyork") yield println(emp)
+  def filterEmployees (city:String): List[Employee]={
+    for (emp <- listofEmployess) {
+      for (address <- (emp.addresses)
+           if address.city == city) yield println("inside filter: " + emp)
+    }
   }
 
-
+  val listofEmployeesinNewyork = filterEmployees("Newyork")
+  println(listofEmployeesinNewyork)
 }

@@ -38,3 +38,5 @@ def getFilesListPath(path:String): Array[String] ={
 }
 val abc = getFilesListPath(".")
 for(a <- abc) println(a)
+
+val n: Unit = abc.foreach(println)

@@ -12,3 +12,4 @@ listofEmployess.filter(emp => emp.addresses.filter(address => address.city == "N
 listofEmployess.filter(emp => emp.addresses.exists(address => address.city == "Pune"))
 
 
+listofEmployess.filter(_.addresses.exists(_.city=="Pune"))

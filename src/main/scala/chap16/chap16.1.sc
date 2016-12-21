@@ -39,3 +39,9 @@ z.filter( {case (x,y) => x < 5}  )
 z.partition( _._1 < 5 )
 z.find( _._1== 5 )
 tlist.span( _ < 5 )
+
+object Color extends Enumeration {
+  val Red, Green, Blue = Value
+}
+Color.Blue
+Color.values
